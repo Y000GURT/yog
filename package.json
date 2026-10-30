@@ -1,0 +1,31 @@
+{
+  "name": "yog",
+  "private": true,
+  "packageManager": "pnpm@10.33.0",
+  "workspaces": [
+    "apps/*"
+  ],
+  "devDependencies": {
+    "@commitlint/cli": "^21.2.4",
+    "@commitlint/config-conventional": "^21.2.4",
+    "@commitlint/types": "^21.2.3",
+    "commitizen": "^4.3.2",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^9.1.7"
+  },
+  "scripts": {
+    "dev": "pnpm --parallel --filter './apps/*' run dev",
+    "dev:web": "pnpm --filter ./apps/web run dev",
+    "dev:api": "pnpm --filter ./apps/api run dev",
+    "prepare": "husky",
+    "typecheck": "pnpm -r --if-present run typecheck",
+    "lint": "pnpm -r --if-present run lint",
+    "check": "pnpm typecheck && pnpm lint",
+    "cz": "cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}

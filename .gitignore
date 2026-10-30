@@ -1,0 +1,28 @@
+# Logs
+logs/
+*.log
+
+# Dependencies and build output
+node_modules/
+dist/
+dist-ssr/
+.vite/
+*.tsbuildinfo
+coverage/
+
+# Local environment variables (keep the example in Git)
+.env
+.env.*
+!.env.example
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
