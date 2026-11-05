@@ -13,6 +13,7 @@
     "commitizen": "^4.3.2",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
     "prettier": "^3.9.10"
   },
   "scripts": {
@@ -30,6 +31,9 @@
     "db:stop": "docker compose stop postgres",
     "db:logs": "docker compose logs -f postgres",
     "db:shell": "docker compose exec postgres psql -U yog -d yog"
+  },
+  "lint-staged": {
+    "*": "prettier --write --ignore-unknown"
   },
   "config": {
     "commitizen": {
