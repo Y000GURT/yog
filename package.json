@@ -9,9 +9,11 @@
     "@commitlint/cli": "^21.2.4",
     "@commitlint/config-conventional": "^21.2.4",
     "@commitlint/types": "^21.2.3",
+    "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
     "commitizen": "^4.3.2",
     "cz-conventional-changelog": "^3.3.0",
-    "husky": "^9.1.7"
+    "husky": "^9.1.7",
+    "prettier": "^3.9.10"
   },
   "scripts": {
     "dev": "pnpm --parallel --filter './apps/*' run dev",
@@ -20,8 +22,14 @@
     "prepare": "husky",
     "typecheck": "pnpm -r --if-present run typecheck",
     "lint": "pnpm -r --if-present run lint",
-    "check": "pnpm typecheck && pnpm lint",
-    "cz": "cz"
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "pnpm typecheck && pnpm lint && pnpm format:check",
+    "cz": "cz",
+    "db:up": "docker compose up -d postgres",
+    "db:stop": "docker compose stop postgres",
+    "db:logs": "docker compose logs -f postgres",
+    "db:shell": "docker compose exec postgres psql -U yog -d yog"
   },
   "config": {
     "commitizen": {
